@@ -32,128 +32,268 @@
         console.log("LIFF Initialization failed:", err);
       });
 
-    // Flex Message
-    const flexMessage = {
-      "type": "flex",
-      "altText": "โค้ชบี",
-      "contents": {
-        "type": "bubble",
-        "body": {
-          "contents": [
-            {
-              "size": "xxl",
-              "text": "Coach B(โค้ชบี)",
-              "type": "text",
-              "weight": "bold"
-            },
-            {
-              "contents": [
-                {
-                  "contents": [
-                    {
-                      "color": "#aaaaaa",
-                      "flex": 1,
-                      "size": "sm",
-                      "text": "แนะนำ",
-                      "type": "text"
-                    },
-                    {
-                      "color": "#666666",
-                      "flex": 5,
-                      "size": "sm",
-                      "text": "ครูผู้ดูแล",
-                      "type": "text",
-                      "wrap": true
-                    }
-                  ],
-                  "layout": "horizontal",
-                  "spacing": "sm",
-                  "type": "box"
-                }
-              ],
-              "layout": "vertical",
-              "margin": "lg",
-              "spacing": "sm",
-              "type": "box"
-            }
-          ],
-          "layout": "vertical",
-          "type": "box"
-        },
-        "footer": {
-          "contents": [
-            {
-              "action": {
-                "label": "📞 0989528254",
-                "type": "uri",
-                "uri": "tel:0989528254"
-              },
-              "color": "#E18AAA",
-              "height": "sm",
-              "position": "relative",
-              "style": "primary",
-              "type": "button"
-            },
-            {
-              "action": {
-                "label": "Line",
-                "type": "uri",
-                "uri": "https://line.me/ti/p/aUlf04PA9j"
-              },
-              "height": "sm",
-              "position": "relative",
-              "style": "primary",
-              "type": "button"
-            },
-            {
-              "action": {
-                "label": "Facebook",
-                "type": "uri",
-                "uri": "https://www.facebook.com/pheemthaphat.nilmat?mibextid=ibOpuV"
-              },
-              "color": "#3b5998",
-              "height": "sm",
-              "position": "relative",
-              "style": "primary",
-              "type": "button"
-            }
-          ],
-          "flex": 0,
-          "layout": "vertical",
-          "spacing": "sm",
-          "type": "box"
-        },
-        "hero": {
-          "action": {
-            "type": "uri",
-            "uri": "https://www.facebook.com/pheemthaphat.nilmat?mibextid=ibOpuV"
+    // Array of Flex Messages
+    const flexMessages = [
+      {
+        "type": "flex",
+        "altText": "Flex Message 1",
+        "contents": {
+          "type": "bubble",
+          "header": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "สถานที่สำคัญ",
+                "weight": "bold",
+                "size": "xl"
+              }
+            ]
           },
-          "aspectMode": "cover",
-          "aspectRatio": "1:1",
-          "size": "full",
-          "type": "image",
-          "url": "https://img2.pic.in.th/pic/-3a2b8b71a0c59bd6b.png"
+          "hero": {
+            "type": "image",
+            "url": "https://example.com/location_image.jpg",
+            "size": "full",
+            "aspectRatio": "20:13",
+            "aspectMode": "cover",
+            "action": {
+              "type": "uri",
+              "uri": "https://example.com/location"
+            }
+          },
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "md",
+            "contents": [
+              {
+                "type": "text",
+                "text": "ชื่อสถานที่",
+                "wrap": true,
+                "weight": "bold",
+                "size": "xl"
+              },
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "icon",
+                    "url": "https://example.com/location_icon.png"
+                  },
+                  {
+                    "type": "text",
+                    "text": "ที่อยู่สถานที่",
+                    "wrap": true,
+                    "size": "sm",
+                    "flex": 5
+                  }
+                ]
+              }
+            ]
+          },
+          "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "button",
+                "action": {
+                  "type": "uri",
+                  "label": "นำทางไป",
+                  "uri": "https://example.com/navigate"
+                },
+                "height": "sm",
+                "style": "primary"
+              }
+            ]
+          }
         }
-      }
-    }
+      },
+      {
+        "type": "flex",
+        "altText": "Flex Message 2",
+        "contents": {
+          "type": "bubble",
+          "header": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "สถานที่สำคัญ",
+                "weight": "bold",
+                "size": "xl"
+              }
+            ]
+          },
+          "hero": {
+            "type": "image",
+            "url": "https://example.com/location_image.jpg",
+            "size": "full",
+            "aspectRatio": "20:13",
+            "aspectMode": "cover",
+            "action": {
+              "type": "uri",
+              "uri": "https://example.com/location"
+            }
+          },
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "md",
+            "contents": [
+              {
+                "type": "text",
+                "text": "ชื่อสถานที่",
+                "wrap": true,
+                "weight": "bold",
+                "size": "xl"
+              },
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "icon",
+                    "url": "https://example.com/location_icon.png"
+                  },
+                  {
+                    "type": "text",
+                    "text": "ที่อยู่สถานที่",
+                    "wrap": true,
+                    "size": "sm",
+                    "flex": 5
+                  }
+                ]
+              }
+            ]
+          },
+          "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "button",
+                "action": {
+                  "type": "uri",
+                  "label": "นำทางไป",
+                  "uri": "https://example.com/navigate"
+                },
+                "height": "sm",
+                "style": "primary"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "flex",
+        "altText": "Flex Message 3",
+        "contents": {
+          "type": "bubble",
+          "header": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "สถานที่สำคัญ",
+                "weight": "bold",
+                "size": "xl"
+              }
+            ]
+          },
+          "hero": {
+            "type": "image",
+            "url": "https://example.com/location_image.jpg",
+            "size": "full",
+            "aspectRatio": "20:13",
+            "aspectMode": "cover",
+            "action": {
+              "type": "uri",
+              "uri": "https://example.com/location"
+            }
+          },
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "md",
+            "contents": [
+              {
+                "type": "text",
+                "text": "ชื่อสถานที่",
+                "wrap": true,
+                "weight": "bold",
+                "size": "xl"
+              },
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "icon",
+                    "url": "https://example.com/location_icon.png"
+                  },
+                  {
+                    "type": "text",
+                    "text": "ที่อยู่สถานที่",
+                    "wrap": true,
+                    "size": "sm",
+                    "flex": 5
+                  }
+                ]
+              }
+            ]
+          },
+          "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "button",
+                "action": {
+                  "type": "uri",
+                  "label": "นำทางไป",
+                  "uri": "https://example.com/navigate"
+                },
+                "height": "sm",
+                "style": "primary"
+              }
+            ]
+          }
+        }
+      },
+      // add more flex message objects as needed
+    ];
 
     // Function to share Flex Message
     const shareFlexMessage = () => {
       if (!liff.isLoggedIn()) {
         liff.login();
       }
-      liff
-        .shareTargetPicker([flexMessage])
-        .then((res) => {
-          if (res) {
-            console.log(`[${res.status}] Message sent!`);
-          } else {
-            console.log("TargetPicker was closed!");
-          }
-        })
-        .catch((error) => {
-          console.log("Something went wrong:", error);
-        });
+
+      // ให้ผู้ใช้เลือก flex message ที่ต้องการส่ง
+      const selectedIndex = prompt("Enter the index of the Flex Message to share (0, 1, 2, ...)");
+
+      // หากเลือกถูกต้อง ส่ง flex message ที่ตำแหน่งนั้น
+      if (selectedIndex >= 0 && selectedIndex < flexMessages.length) {
+        liff
+          .shareTargetPicker([flexMessages[selectedIndex]])
+          .then((res) => {
+            if (res) {
+              console.log(`[${res.status}] Message sent!`);
+            } else {
+              console.log("TargetPicker was closed!");
+            }
+          })
+          .catch((error) => {
+            console.log("Something went wrong:", error);
+          });
+      } else {
+        console.log("Invalid index selected.");
+      }
     };
 
     // Add click event listener to share button
