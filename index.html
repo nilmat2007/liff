@@ -2,76 +2,90 @@
 <html>
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LIFF Flex Message Demo</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
-  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-  <style>
-    body {
-  background-color: #f8f9fa;
-  font-family: 'Poppins', sans-serif;
-}
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>LIFF Flex Message Demo</title>
+ <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+ <style>
+   body {
+     background-color: #f8f9fa;
+     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+   }
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 40px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-}
+   .container {
+     max-width: 600px;
+     margin: 0 auto;
+     padding: 40px;
+     background-color: #fff;
+     border-radius: 10px;
+     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+   }
 
-h1 {
-  font-weight: 600;
-  color: #333;
-  text-align: center;
-  margin-bottom: 30px;
-}
+   h1 {
+     font-weight: 600;
+     color: #333;
+     text-align: center;
+     margin-bottom: 30px;
+   }
 
-.lead {
-  color: #666;
-  text-align: center;
-  margin-bottom: 30px;
-}
+   .lead {
+     color: #666;
+     text-align: center;
+     margin-bottom: 30px;
+   }
 
-.form-group label {
-  font-weight: 500;
-  color: #333;
-}
+   .form-group label {
+     font-weight: 500;
+     color: #333;
+   }
 
-.form-control {
-  border-radius: 5px;
-  box-shadow: none;
-  border: 1px solid #ddd;
-}
+   .form-control {
+     border-radius: 5px;
+     box-shadow: none;
+     border: 1px solid #ddd;
+     padding: 8px 12px;
+   }
 
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
+   .btn {
+     display: inline-block;
+     font-weight: 400;
+     text-align: center;
+     vertical-align: middle;
+     user-select: none;
+     border: 1px solid transparent;
+     padding: 0.375rem 0.75rem;
+     font-size: 1rem;
+     line-height: 1.5;
+     border-radius: 5px;
+     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+   }
 
-.btn-primary:hover {
-  background-color: #0069d9;
-  border-color: #0062cc;
-}
-  </style>
+   .btn-primary {
+     color: #fff;
+     background-color: #007bff;
+     border-color: #007bff;
+   }
+
+   .btn-primary:hover {
+     color: #fff;
+     background-color: #0069d9;
+     border-color: #0062cc;
+   }
+ </style>
 </head>
 
 <body>
-  <div class="container py-5">
-    <h1 class="mb-4">LIFF Flex Message Demo</h1>
-    <p class="lead">Select a Flex Message to share via LIFF.</p>
-    <div class="form-group">
-      <label for="flexSelect">Select Flex Message:</label>
-      <select class="form-control" id="flexSelect">
-        <option value="-1" selected>-- Select an option --</option>
-      </select>
-    </div>
-    <button id="shareBtn" class="btn btn-primary btn-lg mt-3">Share</button>
-  </div>
+ <div class="container py-5">
+   <h1 class="mb-4">LIFF Flex Message Demo</h1>
+   <p class="lead">Select a Flex Message to share via LIFF.</p>
+   <div class="form-group">
+     <label for="flexSelect">Select Flex Message:</label>
+     <select class="form-control" id="flexSelect">
+       <option value="-1" selected>-- Select an option --</option>
+     </select>
+   </div>
+   <button id="shareBtn" class="btn btn-primary btn-lg mt-3">Share</button>
+ </div>
 
   <script>
     // Initialize LIFF
