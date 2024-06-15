@@ -1,117 +1,70 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LIFF Flex Message Demo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  </head>
+  <body>
+    <div class="container py-5">
+      <h1>LIFF Flex Message Demo</h1>
+      <p>Click the button below to share a Flex Message via LIFF.</p>
+      <button id="shareBtn" class="btn btn-primary btn-lg">Share</button>
+    </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta
-        name-"viewport"content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
-    <title>LIFF - LINE Front-end Framework-/title>
-</head>
-
-<body>
-    <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script>
     <script>
-        async function main() {
-            await liff.init({ liffId: "2005615503-1Kkm9Dgr" })
-            await liff.shareTargetPicker([
-                {
-                    type: "flex",
-                    altText: "Flex Message from Share Target Picker",
-                    contents: {
-  "type": "bubble",
-  "hero": {
-    "type": "image",
-    "url": "https://lh3.googleusercontent.com/d/19X34UfhtXb6SA4cbnZafSFBq3XzY5QSQ",
-    "size": "full",
-    "aspectRatio": "20:13",
-    "aspectMode": "cover",
-    "action": {
-      "type": "uri",
-      "uri": "https://youtu.be/QNHGA0MQhLk?si=xde1D50C5dp1hECM"
-    }
-  },
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "text",
-        "text": "เรียนรู้วันที่ 1",
-        "weight": "bold",
-        "size": "xl",
-        "align": "center"
-      },
-      {
-        "type": "text",
-        "text": "💥สร้างหน้าร้านเป็นหน้าเรา ให้เป็นแม่ค้าออนไลน์มืออาชีพ",
-        "wrap": true,
-        "margin": "lg"
-      },
-      {
-        "type": "text",
-        "text": "👉สิ่งที่นักเรียนต้องเตรียมก่อนเข้าเรียน\n1. รูป โปรไฟล์ ขนาด 1:1\n2. รูป Cover หน้าปกขนาดสี่เหลี่ยมผืนผ้า",
-        "wrap": true,
-        "margin": "lg"
-      },
-      {
-        "type": "text",
-        "text": "📌 ห้องเปิด เวลา 18.45 น.",
-        "wrap": true,
-        "margin": "lg"
-      },
-      {
-        "type": "text",
-        "text": "สอนโดย ครูหม่ามี๊ส้มโอ\nอภิลาวันต์ อภิพัฒนภรณ์",
-        "wrap": true,
-        "margin": "lg"
-      },
-      {
-        "type": "text",
-        "text": "ประสบการณ์ในการทำออนไลน์มากกว่า 5 ปี\nสร้างทีมงาน และยอดขายกว่า 1000 ล้าน\nส่งออกไปกว่า 6 ประเทศ AEC & Global 🌍",
-        "wrap": true,
-        "margin": "lg"
-      },
-      {
-        "type": "text",
-        "text": "สิ่งที่นักเรียนต้องเตรียม\nก่อนเข้าเรียนวันนี้..\n\nกรุณาเตรียมสมุดปากกา จดตาม\nสามารถอัดเทป อัดวีดีโอไว้ได้\nหลักสูตรนี้ จะมีภาพประกอบสเต็ปการเรียนรู้ให้โดยละเอียดในอัลบั้ม\nระยะเวลาในการเรียนรู้อาจเกิน 2 ชม.\nให้เผื่อเวลาเรียนได้เลยนะคะ สอนจัดเต็ม !!",
-        "wrap": true,
-        "margin": "lg"
-      }
-    ]
-  },
-  "footer": {
-    "type": "box",
-    "layout": "horizontal",
-    "contents": [
-      {
-        "type": "button",
-        "style": "primary",
-        "color": "#00bfff",
-        "action": {
-          "type": "uri",
-          "label": "ดูวิดีโอ",
-          "uri": "https://youtu.be/QNHGA0MQhLk?si=xde1D50C5dp1hECM"
-        }
-      },
-      {
-        "type": "button",
-        "style": "secondary",
-        "color": "#ff9900",
-        "action": {
-          "type": "uri",
-          "label": "Share",
-          "uri": "https://liff.line.me/2005615503-1Kkm9Dgr"
-        }
-      }
-    ]
-  }
-}
-                }
-            ])
-            liff.closeWindow()
-        }
-        main()
-    </script>
-</body>
+      // ตั้งค่า LIFF Initialize
+      liff.init({ liffId: "2005615503-1Kkm9Dgr" }).then(() => {
+        console.log("LIFF Initialized");
+      });
 
+      // Flex Message
+      const flexMessage = {
+        type: "flex",
+        altText: "This is a Flex Message",
+        contents: {
+          type: "bubble",
+          body: {
+            type: "box",
+            layout: "horizontal",
+            contents: [
+              {
+                type: "text",
+                text: "Hello",
+                weight: "bold",
+                size: "xl",
+              },
+              {
+                type: "text",
+                text: " World!",
+                weight: "bold",
+                size: "xl",
+              },
+            ],
+          },
+        },
+      };
+
+      // ฟังก์ชันสำหรับ Share Flex Message
+      const shareFlexMessage = () => {
+        liff
+          .shareTargetPicker([flexMessage])
+          .then((res) => {
+            if (res) {
+              console.log(`[${res.status}] Message sent!`);
+            } else {
+              console.log("TargetPicker was closed!");
+            }
+          })
+          .catch((error) => {
+            console.log("Something went wrong");
+          });
+      };
+
+      // กำหนดให้ปุ่ม Share เรียกใช้ฟังก์ชัน shareFlexMessage
+      document.getElementById("shareBtn").addEventListener("click", shareFlexMessage);
+    </script>
+  </body>
 </html>
