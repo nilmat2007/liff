@@ -17,8 +17,14 @@
 <body>
   <div class="container py-5">
     <h1 class="mb-4">LIFF Flex Message Demo</h1>
-    <p class="lead">Click the button below to share a Flex Message via LIFF.</p>
-    <button id="shareBtn" class="btn btn-primary btn-lg">Share</button>
+    <p class="lead">Select a Flex Message to share via LIFF.</p>
+    <div class="form-group">
+      <label for="flexSelect">Select Flex Message:</label>
+      <select class="form-control" id="flexSelect">
+        <option value="-1" selected>-- Select an option --</option>
+      </select>
+    </div>
+    <button id="shareBtn" class="btn btn-primary btn-lg mt-3">Share</button>
   </div>
 
   <script>
@@ -36,237 +42,283 @@
     const flexMessages = [
       {
         "type": "flex",
-        "altText": "Flex Message 1",
+        "altText": "ลงชื่อTTS",
         "contents": {
-          "type": "bubble",
-          "header": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "สถานที่สำคัญ",
-                "weight": "bold",
-                "size": "xl"
-              }
-            ]
-          },
-          "hero": {
-            "type": "image",
-            "url": "https://example.com/location_image.jpg",
-            "size": "full",
-            "aspectRatio": "20:13",
-            "aspectMode": "cover",
+  "type": "bubble",
+  "footer": {
+    "contents": [
+      {
+        "action": {
+          "label": "เช็คชื่อนักเรียน",
+          "type": "uri",
+          "uri": "https://nilmat2007.github.io/ttscheck/"
+        },
+        "height": "sm",
+        "position": "relative",
+        "style": "primary",
+        "type": "button"
+      },
+      {
+        "contents": [
+          {
             "action": {
+              "label": "เพิ่มชื่อนักเรียนTTS",
               "type": "uri",
-              "uri": "https://example.com/location"
-            }
-          },
-          "body": {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "md",
-            "contents": [
-              {
-                "type": "text",
-                "text": "ชื่อสถานที่",
-                "wrap": true,
-                "weight": "bold",
-                "size": "xl"
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://example.com/location_icon.png"
-                  },
-                  {
-                    "type": "text",
-                    "text": "ที่อยู่สถานที่",
-                    "wrap": true,
-                    "size": "sm",
-                    "flex": 5
-                  }
-                ]
-              }
-            ]
-          },
-          "footer": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "button",
-                "action": {
-                  "type": "uri",
-                  "label": "นำทางไป",
-                  "uri": "https://example.com/navigate"
-                },
-                "height": "sm",
-                "style": "primary"
-              }
-            ]
+              "uri": "https://nilmat2007.github.io/TTS/"
+            },
+            "height": "sm",
+            "position": "relative",
+            "style": "primary",
+            "type": "button"
           }
-        }
+        ],
+        "flex": 0,
+        "layout": "vertical",
+        "spacing": "sm",
+        "type": "box"
+      }
+    ],
+    "flex": 0,
+    "layout": "vertical",
+    "spacing": "sm",
+    "type": "box"
+  },
+  "hero": {
+    "action": {
+      "type": "uri",
+      "uri": "https://nilmat2007.github.io/order/"
+    },
+    "aspectMode": "cover",
+    "aspectRatio": "2:1",
+    "size": "full",
+    "type": "image",
+    "url": "https://lh3.googleusercontent.com/d/14sgCv8QvDklT4NMJVabXz964TmN-qQ4Y"
+  }
+}
       },
       {
         "type": "flex",
         "altText": "Flex Message 2",
         "contents": {
-          "type": "bubble",
-          "header": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "สถานที่สำคัญ",
-                "weight": "bold",
-                "size": "xl"
-              }
-            ]
+  "type": "bubble",
+  "body": {
+    "contents": [
+      {
+        "size": "xl",
+        "text": "Nano Fulfillment",
+        "type": "text",
+        "weight": "bold"
+      },
+      {
+        "contents": [
+          {
+            "color": "#aaaaaa",
+            "flex": 1,
+            "size": "sm",
+            "text": "แนะนำ",
+            "type": "text"
           },
-          "hero": {
-            "type": "image",
-            "url": "https://example.com/location_image.jpg",
-            "size": "full",
-            "aspectRatio": "20:13",
-            "aspectMode": "cover",
-            "action": {
-              "type": "uri",
-              "uri": "https://example.com/location"
-            }
+          {
+            "color": "#666666",
+            "flex": 5,
+            "size": "sm",
+            "text": "- เช็คคลังก่อนสั่งทุกครั้ง",
+            "type": "text",
+            "wrap": true
           },
-          "body": {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "md",
-            "contents": [
-              {
-                "type": "text",
-                "text": "ชื่อสถานที่",
-                "wrap": true,
-                "weight": "bold",
-                "size": "xl"
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://example.com/location_icon.png"
-                  },
-                  {
-                    "type": "text",
-                    "text": "ที่อยู่สถานที่",
-                    "wrap": true,
-                    "size": "sm",
-                    "flex": 5
-                  }
-                ]
-              }
-            ]
+          {
+            "color": "#666666",
+            "flex": 5,
+            "size": "sm",
+            "text": "- หากสั่งสินค้าแล้ว เกิน 5 นาที ไม่มี line notify แจ้งได้เลยครับ",
+            "type": "text",
+            "wrap": true
           },
-          "footer": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "button",
-                "action": {
-                  "type": "uri",
-                  "label": "นำทางไป",
-                  "uri": "https://example.com/navigate"
-                },
-                "height": "sm",
-                "style": "primary"
-              }
-            ]
+          {
+            "color": "#666666",
+            "size": "sm",
+            "text": "- ครีมกันแดดแลกได้แล้วครับ",
+            "type": "text"
+          },
+          {
+            "color": "#666666",
+            "size": "sm",
+            "text": "เวลา: 08:00 - 18:00",
+            "type": "text",
+            "wrap": true
+          },
+          {
+            "color": "#FF0000",
+            "size": "md",
+            "text": "**สินค้าตัวไหนใกล้หมดรบกวนแจ้งได้เลยนะครับ**",
+            "type": "text",
+            "weight": "bold",
+            "wrap": true
           }
-        }
+        ],
+        "layout": "vertical",
+        "margin": "lg",
+        "spacing": "sm",
+        "type": "box"
+      }
+    ],
+    "layout": "vertical",
+    "type": "box"
+  },
+  "footer": {
+    "contents": [
+      {
+        "action": {
+          "label": "กดเช็คคลัง",
+          "type": "uri",
+          "uri": "https://nilmat2007.github.io/micro/"
+        },
+        "color": "#00bfff",
+        "style": "primary",
+        "type": "button"
+      },
+      {
+        "action": {
+          "label": "สั่งสินค้า",
+          "type": "uri",
+          "uri": "https://nilmat2007.github.io/nano/"
+        },
+        "color": "#ff6347",
+        "style": "primary",
+        "type": "button"
+      }
+    ],
+    "layout": "horizontal",
+    "spacing": "sm",
+    "type": "box"
+  },
+  "hero": {
+    "action": {
+      "type": "uri",
+      "uri": "http://linecorp.com/"
+    },
+    "aspectMode": "cover",
+    "aspectRatio": "20:13",
+    "size": "full",
+    "type": "image",
+    "url": "https://img5.pic.in.th/file/secure-sv1/D110576E-70FB-469B-A9C1-B2A20B8CE4E7.png"
+  }
+}
       },
       {
         "type": "flex",
         "altText": "Flex Message 3",
         "contents": {
-          "type": "bubble",
-          "header": {
-            "type": "box",
-            "layout": "vertical",
+  "type": "bubble",
+  "body": {
+    "contents": [
+      {
+        "size": "xxl",
+        "text": "Coach B(โค้ชบี)",
+        "type": "text",
+        "weight": "bold"
+      },
+      {
+        "contents": [
+          {
             "contents": [
               {
-                "type": "text",
-                "text": "สถานที่สำคัญ",
-                "weight": "bold",
-                "size": "xl"
-              }
-            ]
-          },
-          "hero": {
-            "type": "image",
-            "url": "https://example.com/location_image.jpg",
-            "size": "full",
-            "aspectRatio": "20:13",
-            "aspectMode": "cover",
-            "action": {
-              "type": "uri",
-              "uri": "https://example.com/location"
-            }
-          },
-          "body": {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "md",
-            "contents": [
-              {
-                "type": "text",
-                "text": "ชื่อสถานที่",
-                "wrap": true,
-                "weight": "bold",
-                "size": "xl"
+                "color": "#aaaaaa",
+                "flex": 1,
+                "size": "sm",
+                "text": "แนะนำ",
+                "type": "text"
               },
               {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://example.com/location_icon.png"
-                  },
-                  {
-                    "type": "text",
-                    "text": "ที่อยู่สถานที่",
-                    "wrap": true,
-                    "size": "sm",
-                    "flex": 5
-                  }
-                ]
+                "color": "#666666",
+                "flex": 5,
+                "size": "sm",
+                "text": "ครูผู้ดูแล",
+                "type": "text",
+                "wrap": true
               }
-            ]
-          },
-          "footer": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "button",
-                "action": {
-                  "type": "uri",
-                  "label": "นำทางไป",
-                  "uri": "https://example.com/navigate"
-                },
-                "height": "sm",
-                "style": "primary"
-              }
-            ]
+            ],
+            "layout": "horizontal",
+            "spacing": "sm",
+            "type": "box"
           }
-        }
+        ],
+        "layout": "vertical",
+        "margin": "lg",
+        "spacing": "sm",
+        "type": "box"
+      }
+    ],
+    "layout": "vertical",
+    "type": "box"
+  },
+  "footer": {
+    "contents": [
+      {
+        "action": {
+          "label": "📞 0989528254",
+          "type": "uri",
+          "uri": "tel:0989528254"
+        },
+        "color": "#E18AAA",
+        "height": "sm",
+        "position": "relative",
+        "style": "primary",
+        "type": "button"
+      },
+      {
+        "action": {
+          "label": "Line",
+          "type": "uri",
+          "uri": "https://line.me/ti/p/aUlf04PA9j"
+        },
+        "height": "sm",
+        "position": "relative",
+        "style": "primary",
+        "type": "button"
+      },
+      {
+        "action": {
+          "label": "Facebook",
+          "type": "uri",
+          "uri": "https://www.facebook.com/pheemthaphat.nilmat?mibextid=ibOpuV"
+        },
+        "color": "#3b5998",
+        "height": "sm",
+        "position": "relative",
+        "style": "primary",
+        "type": "button"
+      }
+    ],
+    "flex": 0,
+    "layout": "vertical",
+    "spacing": "sm",
+    "type": "box"
+  },
+  "hero": {
+    "action": {
+      "type": "uri",
+      "uri": "https://www.facebook.com/pheemthaphat.nilmat?mibextid=ibOpuV"
+    },
+    "aspectMode": "cover",
+    "aspectRatio": "1:1",
+    "size": "full",
+    "type": "image",
+    "url": "https://img2.pic.in.th/pic/-3a2b8b71a0c59bd6b.png"
+  }
+}
       },
       // add more flex message objects as needed
     ];
+
+    // Create options for the dropdown
+    const flexSelect = document.getElementById('flexSelect');
+    flexMessages.forEach((flexMessage, index) => {
+      const option = document.createElement('option');
+      option.value = index;
+      option.text = `Flex Message ${index + 1} (${flexMessage.altText})`;
+      flexSelect.add(option);
+    });
 
     // Function to share Flex Message
     const shareFlexMessage = () => {
@@ -274,10 +326,9 @@
         liff.login();
       }
 
-      // ให้ผู้ใช้เลือก flex message ที่ต้องการส่ง
-      const selectedIndex = prompt("Enter the index of the Flex Message to share (0, 1, 2, ...)");
+      const selectedIndex = document.getElementById('flexSelect').value;
 
-      // หากเลือกถูกต้อง ส่ง flex message ที่ตำแหน่งนั้น
+      // ถ้าเลือกตัวเลือกที่ถูกต้อง ส่ง flex message ที่ตำแหน่งนั้น
       if (selectedIndex >= 0 && selectedIndex < flexMessages.length) {
         liff
           .shareTargetPicker([flexMessages[selectedIndex]])
@@ -292,7 +343,7 @@
             console.log("Something went wrong:", error);
           });
       } else {
-        console.log("Invalid index selected.");
+        console.log("Please select a Flex Message.");
       }
     };
 
