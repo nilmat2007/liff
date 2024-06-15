@@ -21,9 +21,14 @@
 
     <script>
       // Initialize LIFF
-      liff.init({ liffId: "2005615503-1Kkm9Dgr" }).then(() => {
-        console.log("LIFF Initialized");
-      });
+      liff
+        .init({ liffId: "2005615503-1Kkm9Dgr" })
+        .then(() => {
+          console.log("LIFF Initialized");
+        })
+        .catch((err) => {
+          console.log("LIFF Initialization failed:", err);
+        });
 
       // Flex Message
       const flexMessage = {
@@ -122,6 +127,9 @@
 
       // Function to share Flex Message
       const shareFlexMessage = () => {
+        if (!liff.isLoggedIn()) {
+          liff.login();
+        }
         liff
           .shareTargetPicker([flexMessage])
           .then((res) => {
@@ -132,7 +140,7 @@
             }
           })
           .catch((error) => {
-            console.log("Something went wrong");
+            console.log("Something went wrong:", error);
           });
       };
 
