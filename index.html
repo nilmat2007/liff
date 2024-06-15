@@ -1,153 +1,164 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LIFF Flex Message Demo</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
-    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-    <style>
-      body {
-        background-color: #f8f9fa;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container py-5">
-      <h1 class="mb-4">LIFF Flex Message Demo</h1>
-      <p class="lead">Click the button below to share a Flex Message via LIFF.</p>
-      <button id="shareBtn" class="btn btn-primary btn-lg">Share</button>
-    </div>
 
-    <script>
-      // Initialize LIFF
-      liff
-        .init({ liffId: "2005615503-1Kkm9Dgr" })
-        .then(() => {
-          console.log("LIFF Initialized");
-        })
-        .catch((err) => {
-          console.log("LIFF Initialization failed:", err);
-        });
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LIFF Flex Message Demo</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+  </style>
+</head>
 
-      // Flex Message
-      const flexMessage = {
-        "type": "flex",
-        "altText": "โค้ชแว่นแก้ว",
-        "contents": {
-  "type": "bubble",
-  "body": {
-    "contents": [
-      {
-        "size": "md",
-        "text": "Coach WanKaew (โค้ชแว่นแก้ว)",
-        "type": "text",
-        "weight": "bold"
-      },
-      {
-        "contents": [
-          {
-            "contents": [
-              {
-                "color": "#aaaaaa",
-                "flex": 1,
-                "size": "sm",
-                "text": "โทร:",
-                "type": "text"
-              },
-              {
-                "color": "#666666",
-                "flex": 5,
-                "size": "sm",
-                "text": "082-478-2498",
-                "type": "text",
-                "wrap": true
-              }
-            ],
-            "layout": "baseline",
-            "spacing": "sm",
-            "type": "box"
-          }
-        ],
-        "layout": "vertical",
-        "margin": "lg",
-        "spacing": "sm",
-        "type": "box"
-      }
-    ],
-    "layout": "vertical",
-    "type": "box"
-  },
-  "footer": {
-    "contents": [
-      {
-        "action": {
-          "label": "โทร",
-          "type": "uri",
-          "uri": "tel:0824782498"
-        },
-        "height": "sm",
-        "style": "primary",
-        "type": "button"
-      },
-      {
-        "action": {
-          "label": "Line",
-          "type": "uri",
-          "uri": "http://line.me/ti/p/~acttw3005"
-        },
-        "height": "sm",
-        "style": "primary",
-        "type": "button"
-      },
-      {
-        "action": {
-          "label": "Facebook",
-          "type": "uri",
-          "uri": "https://www.facebook.com/aobrinlaphat"
-        },
-        "color": "#3b5998",
-        "height": "sm",
-        "style": "primary",
-        "type": "button"
-      }
-    ],
-    "flex": 0,
-    "layout": "vertical",
-    "spacing": "sm",
-    "type": "box"
-  },
-  "hero": {
-    "aspectMode": "cover",
-    "aspectRatio": "1:1",
-    "size": "full",
-    "type": "image",
-    "url": "https:img2.pic.in.th/pic/D534E362-0EE9-4773-BBD6-ACE650DB7CF9.png"
-  }
-}
-      }
+<body>
+  <div class="container py-5">
+    <h1 class="mb-4">LIFF Flex Message Demo</h1>
+    <p class="lead">Click the button below to share a Flex Message via LIFF.</p>
+    <button id="shareBtn" class="btn btn-primary btn-lg">Share</button>
+  </div>
 
-      // Function to share Flex Message
-      const shareFlexMessage = () => {
-        if (!liff.isLoggedIn()) {
-          liff.login();
-        }
-        liff
-          .shareTargetPicker([flexMessage])
-          .then((res) => {
-            if (res) {
-              console.log(`[${res.status}] Message sent!`);
-            } else {
-              console.log("TargetPicker was closed!");
+  <script>
+    // Initialize LIFF
+    liff
+      .init({ liffId: "2005615503-1Kkm9Dgr" })
+      .then(() => {
+        console.log("LIFF Initialized");
+      })
+      .catch((err) => {
+        console.log("LIFF Initialization failed:", err);
+      });
+
+    // Flex Message
+    const flexMessage = {
+      "type": "flex",
+      "altText": "โค้ชบี",
+      "contents": {
+        "type": "bubble",
+        "body": {
+          "contents": [
+            {
+              "size": "xxl",
+              "text": "Coach B(โค้ชบี)",
+              "type": "text",
+              "weight": "bold"
+            },
+            {
+              "contents": [
+                {
+                  "contents": [
+                    {
+                      "color": "#aaaaaa",
+                      "flex": 1,
+                      "size": "sm",
+                      "text": "แนะนำ",
+                      "type": "text"
+                    },
+                    {
+                      "color": "#666666",
+                      "flex": 5,
+                      "size": "sm",
+                      "text": "ครูผู้ดูแล",
+                      "type": "text",
+                      "wrap": true
+                    }
+                  ],
+                  "layout": "horizontal",
+                  "spacing": "sm",
+                  "type": "box"
+                }
+              ],
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "type": "box"
             }
-          })
-          .catch((error) => {
-            console.log("Something went wrong:", error);
-          });
-      };
+          ],
+          "layout": "vertical",
+          "type": "box"
+        },
+        "footer": {
+          "contents": [
+            {
+              "action": {
+                "label": "📞 0989528254",
+                "type": "uri",
+                "uri": "tel:0989528254"
+              },
+              "color": "#E18AAA",
+              "height": "sm",
+              "position": "relative",
+              "style": "primary",
+              "type": "button"
+            },
+            {
+              "action": {
+                "label": "Line",
+                "type": "uri",
+                "uri": "https://line.me/ti/p/aUlf04PA9j"
+              },
+              "height": "sm",
+              "position": "relative",
+              "style": "primary",
+              "type": "button"
+            },
+            {
+              "action": {
+                "label": "Facebook",
+                "type": "uri",
+                "uri": "https://www.facebook.com/pheemthaphat.nilmat?mibextid=ibOpuV"
+              },
+              "color": "#3b5998",
+              "height": "sm",
+              "position": "relative",
+              "style": "primary",
+              "type": "button"
+            }
+          ],
+          "flex": 0,
+          "layout": "vertical",
+          "spacing": "sm",
+          "type": "box"
+        },
+        "hero": {
+          "action": {
+            "type": "uri",
+            "uri": "https://www.facebook.com/pheemthaphat.nilmat?mibextid=ibOpuV"
+          },
+          "aspectMode": "cover",
+          "aspectRatio": "1:1",
+          "size": "full",
+          "type": "image",
+          "url": "https://img2.pic.in.th/pic/-3a2b8b71a0c59bd6b.png"
+        }
+      }
+    }
 
-      // Add click event listener to share button
-      document.getElementById("shareBtn").addEventListener("click", shareFlexMessage);
-    </script>
-  </body>
+    // Function to share Flex Message
+    const shareFlexMessage = () => {
+      if (!liff.isLoggedIn()) {
+        liff.login();
+      }
+      liff
+        .shareTargetPicker([flexMessage])
+        .then((res) => {
+          if (res) {
+            console.log(`[${res.status}] Message sent!`);
+          } else {
+            console.log("TargetPicker was closed!");
+          }
+        })
+        .catch((error) => {
+          console.log("Something went wrong:", error);
+        });
+    };
+
+    // Add click event listener to share button
+    document.getElementById("shareBtn").addEventListener("click", shareFlexMessage);
+  </script>
+</body>
+
 </html>
